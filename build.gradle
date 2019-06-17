@@ -1,0 +1,58 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.21.RELEASE'
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.soterianetworks.spase'
+version = '1.0.0-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+ext {
+    set('springCloudVersion', "Edgware.SR5")
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    compile 'io.github.openfeign:feign-core:10.2.3'
+    compile 'io.github.openfeign:feign-jackson:10.2.3'
+    compile 'io.github.openfeign:feign-okhttp:10.2.3'
+    compile 'io.github.openfeign:feign-slf4j:10.2.3'
+
+    compile 'com.soterianetworks:spase-standalone:0.9.20'
+    compile 'com.soterianetworks:spase-standalone-starter:0.9.20'
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+bootRun {
+    if (project.hasProperty('jvmArgs')) {
+        jvmArgs project.jvmArgs.split('\\s+')
+    }
+}
