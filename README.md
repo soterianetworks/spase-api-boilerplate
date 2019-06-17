@@ -1,6 +1,6 @@
 # Overview
 
-The boilerplate to show how to create a standalone SP.
+A simple Spring application to showcase a standalone service provider.
 
 # Show Case
 
@@ -16,7 +16,8 @@ Endpoint | Feature  | Description
 
 > Before start, please make sure the following are installed on your local machine. 
 > * docker & docker-compose
-> * java & gradle 
+> * java 
+> * gradle 
 
 1. Start Redis
 
@@ -33,12 +34,12 @@ gradle clean bootRun -PjvmArgs="-Dspring.profiles.active=development"
 
 3. Examine it 
 
-Open chrome browser , enter the following urls 
+In a browser, such as Chrome, enter the following urls and check the responses.
 
 * http://127.0.0.1:8080/health
 * http://127.0.0.1:8080/info
 
-And if you enter the following url , it shows 401 error
+When you enter the following url, it shows 401 error.
 
 * http://127.0.0.1:8080/hello
 
