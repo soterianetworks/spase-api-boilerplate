@@ -6,8 +6,8 @@ The boilerplate to show how to create a standalone SP.
 
 Endpoint | Feature  | Description
 ---|---|---
-/health | Health by Spring Actuator  | 
-/ino | Info by Spring Actuator  | 
+/health | Spring Application Health | by Spring Actuator  
+/info | Spring Application Info | by Spring Actuator 
 /health | show 'world' | Under Spase Security Protection
 /foo | show 'bar' | Under Spase Security Protection
 /my-profile | show current user's profile | Under Spase Security Protection
